@@ -3,308 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+    <title>Valentine's Day Celebration</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-direction: column;
+            height: 100vh;
+            background: pink;
+            font-family: Arial, sans-serif;
         }
-
-        .container {
-            text-align: center;
-            background: white;
-            padding: 80px 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            animation: slideIn 0.6s ease-out;
-        }
-
-        .heart-animation {
-            font-size: 5em;
-            animation: heartbeat 1.3s infinite;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 3em;
-            background: linear-gradient(135deg, #e91e63, #ff6b9d);
+        .gradient-text {
+            font-size: 48px;
+            background: linear-gradient(to right, red, pink);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            animation: fadeInDown 0.8s ease-out;
         }
-
-        .subtitle {
-            font-size: 1.3em;
-            color: #666;
-            margin-bottom: 50px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 18px 50px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        #yesBtn {
-            background: linear-gradient(135deg, #4caf50, #45a049);
-            color: white;
-        }
-
-        #yesBtn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        #yesBtn:active {
-            transform: scale(0.98);
-        }
-
-        #noBtn {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
-            color: white;
-            position: relative;
-        }
-
-        #noBtn:hover {
-            transform: translate(20px, -20px) scale(0.95);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .success-container {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .success-message {
-            font-size: 2.5em;
-            color: #e91e63;
-            margin-bottom: 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: bounce 0.6s ease-in-out;
-        }
-
-        .gif-container {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: zoomIn 0.6s ease-out;
-        }
-
-        .gif-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .come-on-message {
-            display: none;
-            font-size: 2.5em;
-            color: #ff6b6b;
-            font-weight: bold;
+        #no-button {
             margin-top: 20px;
-            animation: shake 0.5s ease-in-out;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.15);
-            }
-            50% {
-                transform: scale(1);
-            }
-            75% {
-                transform: scale(1.15);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes shake {
-            0%, 100% {
-                transform: translateX(0) rotateZ(0deg);
-            }
-            25% {
-                transform: translateX(-10px) rotateZ(-2deg);
-            }
-            75% {
-                transform: translateX(10px) rotateZ(2deg);
-            }
-        }
-
-        .initial-content {
-            animation: fadeInUp 0.8s ease-out;
+            padding: 10px 20px;
+            border: 2px solid pink;
+            background: white;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="initial-content" id="initialContent">
-            <div class="heart-animation">❤️</div>
-            <h1>Will You Be My Valentine?</h1>
-            <p class="subtitle">I really like you... 🥰</p>
-            
-            <div class="button-container">
-                <button id="yesBtn">Yes! 💕</button>
-                <button id="noBtn">No</button>
-            </div>
-        </div>
-
-        <div class="success-container" id="successContainer">
-            <div class="success-message">YES!!! 🎉💕</div>
-            <div class="gif-container">
-                <img src="https://media.giphy.com/media/g9GUuK-NGMeeQ/giphy.gif" alt="Celebration">
-            </div>
-            <p class="subtitle" style="margin-top: 30px; font-size: 1.5em; color: #e91e63;">You just made me the happiest person ever! 💕✨</p>
-        </div>
-
-        <div class="come-on-message" id="comeOnMessage">Come On... 😢💔</div>
-    </div>
-
+    <h1 class="gradient-text">Happy Valentine's Day!</h1>
+    <img src="https://example.com/valentine.gif" alt="Valentine Celebration" />
+    <button id="no-button" onclick="changeTextAndColor()">No</button>
     <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const initialContent = document.getElementById('initialContent');
-        const successContainer = document.getElementById('successContainer');
-        const comeOnMessage = document.getElementById('comeOnMessage');
-        let noClickCount = 0;
-
-        yesBtn.addEventListener('click', () => {
-            initialContent.style.display = 'none';
-            successContainer.style.display = 'block';
-            comeOnMessage.style.display = 'none';
-        });
-
-        noBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            noClickCount++;
-            
-            if (noClickCount === 1) {
-                noBtn.textContent = 'Come On...';
-                noBtn.style.background = 'linear-gradient(135deg, #ffa500, #ff8c00)';
-                comeOnMessage.style.display = 'block';
-            } else if (noClickCount === 2) {
-                noBtn.textContent = 'Pretty Please? 🥺';
-                noBtn.style.background = 'linear-gradient(135deg, #ff6b9d, #ff69b4)';
-            } else if (noClickCount === 3) {
-                noBtn.textContent = 'Say Yes! 💗';
-                noBtn.style.background = 'linear-gradient(135deg, #e91e63, #c2185b)';
-            } else {
-                noBtn.textContent = 'I Know You Want To! 😉';
-            }
-
-            const randomX = (Math.random() - 0.5) * 150;
-            const randomY = (Math.random() - 0.5) * 150;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.95)`;
-        });
-
-        noBtn.addEventListener('mouseover', () => {
-            const randomX = (Math.random() - 0.5) * 150;
-            const randomY = (Math.random() - 0.5) * 150;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.95)`;
-        });
+        function changeTextAndColor() {
+            const button = document.getElementById('no-button');
+            button.innerText = 'Try Again!';
+            button.style.backgroundColor = 'red';
+            button.style.color = 'white';
+        }
     </script>
 </body>
 </html>
