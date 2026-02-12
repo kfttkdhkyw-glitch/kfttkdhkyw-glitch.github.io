@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #e91e63;
+            margin-bottom: 30px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .heart {
+            font-size: 4em;
+            animation: heartbeat 1.3s infinite;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            height: 60px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+
+        #noBtn:hover {
+            transform: translate(100px, -100px);
+        }
+
+        .success {
+            display: none;
+            font-size: 2em;
+            color: #4caf50;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Will You Be My Valentine?</h1>
+        <p>I really like you... ☺️</p>
+        
+        <div class="button-container">
+            <button id="yesBtn">Yes! 💕</button>
+            <button id="noBtn">No</button>
+        </div>
+
+        <div class="success" id="success">
+            <p>🎉 YESSS! You made me the happiest person! 💕</p>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const successMsg = document.getElementById('success');
+
+        yesBtn.addEventListener('click', () => {
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            successMsg.style.display = 'block';
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 300;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 300;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+    </script>
+</body>
+</html>
