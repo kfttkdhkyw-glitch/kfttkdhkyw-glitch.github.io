@@ -3,43 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Celebration</title>
+    <title>Happy Valentine's Day!</title>
     <style>
         body {
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
-            background: pink;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            animation: backgroundChange 10s infinite;
         }
-        .gradient-text {
-            font-size: 48px;
-            background: linear-gradient(to right, red, pink);
+        @keyframes backgroundChange {
+            0% { background: #f6d365; }
+            50% { background: #fda085; }
+            100% { background: #f6d365; }
+        }
+        h1 {
+            font-size: 4em;
+            background: -webkit-gradient(linear, left top, right top, color-stop(0, #ff0000), color-stop(1, #0000ff), color-stop(0.5, #00ff00));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientText 3s ease infinite;
         }
-        #no-button {
-            margin-top: 20px;
+        @keyframes gradientText {
+            0% { background-position: 0%; }
+            100% { background-position: 100%; }
+        }
+        button {
             padding: 10px 20px;
-            border: 2px solid pink;
-            background: white;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            background-color: #ff69b4;
+            color: white;
+            transition: background-color 0.5s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        img {
+            width: 300px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1 class="gradient-text">Happy Valentine's Day!</h1>
-    <img src="https://example.com/valentine.gif" alt="Valentine Celebration" />
-    <button id="no-button" onclick="changeTextAndColor()">No</button>
-    <script>
-        function changeTextAndColor() {
-            const button = document.getElementById('no-button');
-            button.innerText = 'Try Again!';
-            button.style.backgroundColor = 'red';
-            button.style.color = 'white';
-        }
-    </script>
+    <h1>Happy Valentine's Day!</h1>
+    <img src="https://example.com/celebration.gif" alt="Celebration GIF">
+    <button onclick="alert('Happy Valentine!')">Click Me!</button>
 </body>
 </html>
