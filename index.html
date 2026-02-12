@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,76 +23,124 @@
         .container {
             text-align: center;
             background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
+            padding: 80px 50px;
+            border-radius: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
+            max-width: 600px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .heart-animation {
+            font-size: 5em;
+            animation: heartbeat 1.3s infinite;
+            margin-bottom: 30px;
         }
 
         h1 {
             font-size: 3em;
-            color: #e91e63;
-            margin-bottom: 30px;
-            animation: pulse 1.5s infinite;
-        }
-
-        .heart {
-            font-size: 4em;
-            animation: heartbeat 1.3s infinite;
+            background: linear-gradient(135deg, #e91e63, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
-        p {
-            font-size: 1.5em;
-            color: #333;
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
             margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .button-container {
             display: flex;
             gap: 20px;
             justify-content: center;
-            position: relative;
-            height: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         button {
-            padding: 15px 40px;
-            font-size: 1.1em;
+            padding: 18px 50px;
+            font-size: 1.2em;
             border: none;
-            border-radius: 10px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         #yesBtn {
-            background-color: #4caf50;
+            background: linear-gradient(135deg, #4caf50, #45a049);
             color: white;
         }
 
         #yesBtn:hover {
-            background-color: #45a049;
             transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        #yesBtn:active {
+            transform: scale(0.98);
         }
 
         #noBtn {
-            background-color: #f44336;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
             color: white;
-            position: absolute;
+            position: relative;
         }
 
         #noBtn:hover {
-            transform: translate(100px, -100px);
+            transform: translate(20px, -20px) scale(0.95);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
         }
 
-        .success {
+        .success-container {
             display: none;
-            font-size: 2em;
-            color: #4caf50;
-            margin-top: 30px;
             animation: fadeIn 0.5s ease-in;
+        }
+
+        .success-message {
+            font-size: 2.5em;
+            color: #e91e63;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        .gif-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 0.6s ease-out;
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .come-on-message {
+            display: none;
+            font-size: 2.5em;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: shake 0.5s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @keyframes heartbeat {
@@ -100,75 +148,162 @@
                 transform: scale(1);
             }
             25% {
-                transform: scale(1.1);
+                transform: scale(1.15);
             }
             50% {
                 transform: scale(1);
             }
             75% {
-                transform: scale(1.1);
+                transform: scale(1.15);
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            50% {
-                opacity: 0.8;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: scale(0.8);
             }
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0) rotateZ(0deg);
+            }
+            25% {
+                transform: translateX(-10px) rotateZ(-2deg);
+            }
+            75% {
+                transform: translateX(10px) rotateZ(2deg);
+            }
+        }
+
+        .initial-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="heart">❤️</div>
-        <h1>Will You Be My Valentine?</h1>
-        <p>I really like you... ☺️</p>
-        
-        <div class="button-container">
-            <button id="yesBtn">Yes! 💕</button>
-            <button id="noBtn">No</button>
+        <div class="initial-content" id="initialContent">
+            <div class="heart-animation">❤️</div>
+            <h1>Will You Be My Valentine?</h1>
+            <p class="subtitle">I really like you... 🥰</p>
+            
+            <div class="button-container">
+                <button id="yesBtn">Yes! 💕</button>
+                <button id="noBtn">No</button>
+            </div>
         </div>
 
-        <div class="success" id="success">
-            <p>🎉 YESSS! You made me the happiest person! 💕</p>
+        <div class="success-container" id="successContainer">
+            <div class="success-message">YES!!! 🎉💕</div>
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/g9GUuK-NGMeeQ/giphy.gif" alt="Celebration">
+            </div>
+            <p class="subtitle" style="margin-top: 30px; font-size: 1.5em; color: #e91e63;">You just made me the happiest person ever! 💕✨</p>
         </div>
+
+        <div class="come-on-message" id="comeOnMessage">Come On... 😢💔</div>
     </div>
 
     <script>
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
-        const successMsg = document.getElementById('success');
+        const initialContent = document.getElementById('initialContent');
+        const successContainer = document.getElementById('successContainer');
+        const comeOnMessage = document.getElementById('comeOnMessage');
+        let noClickCount = 0;
 
         yesBtn.addEventListener('click', () => {
-            yesBtn.style.display = 'none';
-            noBtn.style.display = 'none';
-            successMsg.style.display = 'block';
-        });
-
-        noBtn.addEventListener('mouseover', () => {
-            const randomX = (Math.random() - 0.5) * 300;
-            const randomY = (Math.random() - 0.5) * 300;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            initialContent.style.display = 'none';
+            successContainer.style.display = 'block';
+            comeOnMessage.style.display = 'none';
         });
 
         noBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const randomX = (Math.random() - 0.5) * 300;
-            const randomY = (Math.random() - 0.5) * 300;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            noClickCount++;
+            
+            if (noClickCount === 1) {
+                noBtn.textContent = 'Come On...';
+                noBtn.style.background = 'linear-gradient(135deg, #ffa500, #ff8c00)';
+                comeOnMessage.style.display = 'block';
+            } else if (noClickCount === 2) {
+                noBtn.textContent = 'Pretty Please? 🥺';
+                noBtn.style.background = 'linear-gradient(135deg, #ff6b9d, #ff69b4)';
+            } else if (noClickCount === 3) {
+                noBtn.textContent = 'Say Yes! 💗';
+                noBtn.style.background = 'linear-gradient(135deg, #e91e63, #c2185b)';
+            } else {
+                noBtn.textContent = 'I Know You Want To! 😉';
+            }
+
+            const randomX = (Math.random() - 0.5) * 150;
+            const randomY = (Math.random() - 0.5) * 150;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.95)`;
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const randomX = (Math.random() - 0.5) * 150;
+            const randomY = (Math.random() - 0.5) * 150;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.95)`;
         });
     </script>
 </body>
